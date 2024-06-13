@@ -52,7 +52,12 @@
 		}
 	};
 
-	onMount(loadOrders);
+	let pageTitle = 'Control Panel - Orders';
+
+	onMount(() => {
+		document.title = pageTitle;
+		loadOrders();
+	});
 
 	const handleRead = (productId: string) => {
 		goto(`/control-panel/orders/${productId}`);
