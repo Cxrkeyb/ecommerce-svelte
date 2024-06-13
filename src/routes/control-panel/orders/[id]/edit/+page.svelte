@@ -20,10 +20,13 @@
     }
   };
 
-  onMount(async () => {
+	let pageTitle = 'Control Panel - Products';
+
+	onMount(async () => {
+		document.title = pageTitle;
     orderId = $page.params.id;
     await fetchOrder();
-  });
+	});
 
   const handleSubmit = async () => {
     try {

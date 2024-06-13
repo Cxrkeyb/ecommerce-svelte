@@ -2,6 +2,13 @@
   import LargeCard from '$lib/components/cards/LargeCard.svelte';
   import DogsPossing from '$lib/assets/dogs-possing.png';
   import Products from '$lib/components/Products.svelte';
+  import { onMount } from 'svelte';
+
+let pageTitle = 'Products';
+
+onMount(() => {
+  document.title = pageTitle;
+});
 </script>
 
 

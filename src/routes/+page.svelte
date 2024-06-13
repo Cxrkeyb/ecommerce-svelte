@@ -1,4 +1,12 @@
 <script>
+	import { onMount } from 'svelte';
+
+	let pageTitle = 'Home';
+
+	onMount(() => {
+		document.title = pageTitle;
+	});
+
 	import Header from '$lib/components/home/Header.svelte';
 	import Products from '$lib/components/Products.svelte';
 	import Navbar from '$lib/components/home/Navbar.svelte';

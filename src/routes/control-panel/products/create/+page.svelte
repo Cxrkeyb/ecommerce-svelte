@@ -1,5 +1,6 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
+  import { onMount } from 'svelte';
 
   let name: string = '';
   let description: string = '';
@@ -29,6 +30,12 @@
       console.error('Error al Create el producto:', error);
     }
   };
+
+  let pageTitle = 'Control Panel - Create Product';
+
+	onMount(() => {
+		document.title = pageTitle;
+	});
 </script>
 
 <div class="container mx-auto">
