@@ -1,6 +1,6 @@
 <script>
 	import Header from '$lib/components/home/Header.svelte';
-	import Products from '$lib/components/home/Products.svelte';
+	import Products from '$lib/components/Products.svelte';
 	import Navbar from '$lib/components/home/Navbar.svelte';
 	import Knowledge from '$lib/components/home/Knowledge.svelte';
 	import LargeCard from '$lib/components/cards/LargeCard.svelte';
