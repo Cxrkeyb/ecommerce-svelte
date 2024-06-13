@@ -94,65 +94,59 @@
 		unsubscribeProduct();
 	});
 </script>
+<div class="flex flex-col items-center justify-center py-8 md:py-20">
+  <div class="border shadow-xl bg-white container mx-auto md:rounded-xl">
+    {#if product}
+      <div class="flex flex-col md:flex-row items-center justify-center p-2">
+        <img src={product.image} alt={product.name} class="h-[300px] md:h-[550px] w-full md:w-[550px] object-contain" />
+        <div class="flex flex-col items-center justify-center p-4 md:p-8">
+          <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4 text-center md:text-left">
+            {product.name}
+          </h2>
+          <p class="text-lg text-gray-600 mb-4">
+            {product.description}
+          </p>
+          <p class="text-xl font-bold text-primary">
+            ${product.price}
+          </p>
+          <p class="text-lg text-gray-600">
+            Stock: {product.stock}
+          </p>
 
-<div class="flex flex-col items-center justify-center py-20">
-	<div class="border shadow-xl bg-white container rounded-xl">
-		{#if product}
-			<div class="flex flex-row items-center justify-center p-2">
-				<img src={product.image} alt={product.name} class="h-[550px] w-[550px] object-contain" />
-				<div class="flex flex-col items-center justify-center p-8">
-					<h2 class="text-3xl font-bold text-primary mb-4">
-						{product.name}
-					</h2>
-					<p class="text-lg text-gray-600 mb-4">
-						{product.description && product.description}
-					</p>
-					<p class="text-xl font-bold text-primary">
-						${product.price}
-					</p>
-					<p class="text-lg text-gray-600">
-						Stock: {product.stock}
-					</p>
-
-					<!-- Cantidad -->
-					<div class="flex flex-row items-center justify-center mt-4">
-						<button
-							class="bg-primary text-white px-4 py-2 rounded-lg disabled:opacity-50 {quantity === 1
-								? 'cursor-not-allowed'
-								: ''}"
-							on:click={decreaseQuantity}
-						>
-							-
-						</button>
-						<span class="text-xl font-bold px-4">
-							{quantity}
-						</span>
-						<button
-							class="bg-primary text-white px-4 py-2 rounded-lg disabled:opacity-50 {product.stock ===
-							quantity
-								? 'cursor-not-allowed'
-								: ''}"
-							on:click={increaseQuantity}
-						>
-							+
-						</button>
-					</div>
-					<!-- Botón agregar al carrito -->
-					<button class="bg-primary text-white px-4 py-2 rounded-lg mt-4" on:click={addToCart}>
-						<!-- Si el producto ya está en el carrito cambiar el texto -->
-						{#if $cart.find((item) => product && item.id === product.id)}
-							Go to cart
-						{:else}
-							Add to Cart
-						{/if}
-					</button>
-				</div>
-			</div>
-		{:else}
-			<p class="text-red-500 p-4">
-				{error}
-			</p>
-		{/if}
-	</div>
+          <!-- Cantidad -->
+          <div class="flex flex-row items-center justify-center mt-4">
+            <button
+              class="bg-primary text-white px-3 py-1 md:px-4 md:py-2 rounded-lg disabled:opacity-50 {quantity === 1 ? 'cursor-not-allowed' : ''}"
+              on:click={decreaseQuantity}
+            >
+              -
+            </button>
+            <span class="text-xl font-bold px-3 md:px-4">
+              {quantity}
+            </span>
+            <button
+              class="bg-primary text-white px-3 py-1 md:px-4 md:py-2 rounded-lg disabled:opacity-50 {product.stock === quantity ? 'cursor-not-allowed' : ''}"
+              on:click={increaseQuantity}
+            >
+              +
+            </button>
+          </div>
+          <!-- Botón agregar al carrito -->
+          <button class="bg-primary text-white px-4 py-2 rounded-lg mt-4 w-full md:w-auto" on:click={addToCart}>
+            {#if $cart.find(item => product && item.id === product.id)}
+              Go to Cart
+            {:else}
+              Add to Cart
+            {/if}
+          </button>
+        </div>
+      </div>
+    {:else}
+      <p class="text-red-500 p-4">
+        {error}
+      </p>
+    {/if}
+  </div>
 </div>
+
 <Products limit={4} />
