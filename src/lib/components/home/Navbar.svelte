@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import {goto} from '$app/navigation';
 	import Logo from '$lib/assets/logo.png';
 
 	let menuOpen = false;
@@ -44,33 +45,25 @@
   <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
   <div
     id="mobile-menu"
-    class="{menuOpen ? 'block' : 'hidden'} md:flex md:items-center mt-4 md:mt-0"
+    class="{menuOpen ? 'block' : 'hidden'} md:flex md:items-center mt-4 md:mt-0 max-w-[300px] md:max-w-[500px] md:w-full md:justify-end md:mr-4"
   >
     <div class="flex flex-col md:flex-row md:mx-6">
-      <a
+      <button
         class="my-1 text-lg font-bold text-primary hover:text-primary-light md:mx-4 md:my-0"
-        href="/"
+        on:click={() => {
+					goto('/');
+				}}
       >
         Home
-      </a>
-      <a
+      </button>
+      <button
         class="my-1 text-lg font-bold text-primary hover:text-primary-light md:mx-4 md:my-0"
-        href="/"
+				on:click={() => {
+					goto('/control-panel');
+				}}
       >
-        Shop
-      </a>
-      <a
-        class="my-1 text-lg font-bold text-primary hover:text-primary-light md:mx-4 md:my-0"
-        href="/"
-      >
-        About
-      </a>
-      <a
-        class="my-1 text-lg font-bold text-primary hover:text-primary-light md:mx-4 md:my-0"
-        href="/"
-      >
-        Contact
-      </a>
+        Control panel
+      </button>
     </div>
   </div>
 </div>
