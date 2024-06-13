@@ -25,7 +25,7 @@
   const loadProducts = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3100/v1/products${pagination ? `?page=${page}&limit=${limit}` : ''}`,
+        `http://localhost:3100/v1/products?page=${page}&limit=${limit}`,
         {
           method: 'GET',
           headers: {
@@ -95,7 +95,7 @@
   {:else if products.length > 0}
 	<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
 		{#each products as product}
-			<div class="flex flex-col items-center justify-center bg-white rounded-lg shadow-lg p-4 w-[300px] m-4 {!button ? 'cursor-pointer' : ''}"
+			<button class="flex flex-col items-center justify-center bg-white rounded-lg shadow-lg p-4 w-[300px] m-4 {!button ? 'cursor-pointer' : ''}"
 				on:click={() => { window.location.href = `/products/${product.id}`; }}
 			>
 				<img src={product.image} alt={product.name} class="w-full h-[200px] object-cover" />
@@ -106,7 +106,7 @@
 						Go to product
 					</button>
 				{/if}
-			</div>
+			</button>
 		{/each}
 	</div>
 	
