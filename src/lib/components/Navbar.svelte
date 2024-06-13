@@ -49,7 +49,7 @@
 				>Home</a
 			>
 			<a
-				href="/"
+				href="/control-panel"
 				class="my-1 text-[20px] font-bold text-primary hover:text-primary-light md:mx-4 md:my-0"
 				>Control panel</a
 			>

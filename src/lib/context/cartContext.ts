@@ -6,12 +6,12 @@ import type { Product } from '$lib/types/Product';
 export interface CartContext {
   cart: Product[];
   addItem: (product: Product) => void;
-  removeItem: (productId: number) => void;
-  updateItemQuantity: (productId: number, quantity: number) => void;
+  removeItem: (productId: string) => void;
+  updateItemQuantity: (productId: string, quantity: number) => void;
   clearCart: () => void;
 }
 
-// Crear almacén para el carrito de compras
+// Create almacén para el carrito de compras
 export const cart = writable<Product[]>([]);
 
 // Función para agregar un producto al carrito
@@ -20,12 +20,12 @@ export const addItem = (product: Product) => {
 };
 
 // Función para eliminar un producto del carrito
-export const removeItem = (productId: number) => {
+export const removeItem = (productId: string) => {
   cart.update((items) => items.filter((item) => item.id !== productId));
 };
 
 // Función para actualizar la cantidad de un producto en el carrito
-export const updateItemQuantity = (productId: number, quantity: number) => {
+export const updateItemQuantity = (productId: string, quantity: number) => {
   cart.update((items) =>
     items.map((item) => (item.id === productId ? { ...item, quantity } : item))
   );

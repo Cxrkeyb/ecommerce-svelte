@@ -41,7 +41,7 @@
 			if (response.ok) {
 				// Limpiar el carrito
 				cart.set([]);
-				goto('/orders');
+				goto('/control-panel/orders');
 				error = null;
 			}
 

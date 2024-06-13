@@ -1,20 +1,16 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { onMount, afterUpdate, onDestroy } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 	import { addItem, cart } from '$lib/context/cartContext';
 	import { goto } from '$app/navigation';
 	import type { Product } from '$lib/types/Product.d.ts';
 	import Products from '$lib/components/Products.svelte';
-
-	// Obtiene el id de la URL actual
-	export let id = $page.params.id;
 
 	let quantity = 1;
 	let product: Product | null = null;
 	let error: string | null = null;
 
 	const loadProduct = async (id: string = $page.params.id) => {
-		console.log(`Loading product with id: ${id}`);
 		try {
 			const response = await fetch(`http://localhost:3100/v1/products/${id}`, {
 				method: 'GET',
