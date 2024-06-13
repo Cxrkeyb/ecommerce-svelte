@@ -55,15 +55,7 @@
 					>
 					<a
 						class="my-1 text-[20px] font-bold text-primary hover:text-primary-light md:mx-4 md:my-0"
-						href="/">Shop</a
-					>
-					<a
-						class="my-1 text-[20px] font-bold text-primary hover:text-primary-light md:mx-4 md:my-0"
-						href="/">About</a
-					>
-					<a
-						class="my-1 text-[20px] font-bold text-primary hover:text-primary-light md:mx-4 md:my-0"
-						href="/">Contact</a
+						href="/">Control panel</a
 					>
 				</div>
 			</div>
@@ -71,7 +63,7 @@
 		<!-- Cart -->
 		<div class="flex items-center">
 			<a
-				href="/"
+				href="/cart"
 				class="
           text-gray-600
           hover:text-gray-700
