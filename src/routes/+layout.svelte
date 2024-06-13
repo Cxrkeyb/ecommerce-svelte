@@ -11,5 +11,12 @@
 		rel="stylesheet"
 	/>
 	<slot></slot>
-	<Footer />
+	<div class="container mx-auto px-4 py-4">
+		<div class="flex justify-center items-center">
+			<p class="text-center text-gray-500 text-sm">
+				&copy; 2021 Ecommerce. All rights reserved.
+			</p>
+		</div>
+	</div>
+	<!-- <Footer /> -->
 </main>
