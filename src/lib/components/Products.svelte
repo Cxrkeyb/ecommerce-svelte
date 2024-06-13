@@ -7,14 +7,8 @@
 
   import { onMount } from 'svelte';
   import HeaderWithButton from './cards/HeaderWithButton.svelte';
-
-  // Definimos la interfaz para los datos de los productos
-  interface Product {
-    id: number;
-    name: string;
-    price: number;
-    image: string;
-  }
+	import type { Product } from '$lib/types/Product.d.ts';
+	import {goto} from '$app/navigation';
 
   // Declaramos explícitamente los tipos de las variables
   let products: Product[] = [];
@@ -96,13 +90,17 @@
 	<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
 		{#each products as product}
 			<button class="flex flex-col items-center justify-center bg-white rounded-lg shadow-lg p-4 w-[300px] m-4 {!button ? 'cursor-pointer' : ''}"
-				on:click={() => { window.location.href = `/products/${product.id}`; }}
+				on:click={() => { 
+					goto(`/products/${product.id}`);
+				 }}
 			>
 				<img src={product.image} alt={product.name} class="w-full h-[200px] object-cover" />
 				<h3 class="text-lg font-bold">{product.name}</h3>
 				<p class="text-gray-500">${product.price}</p>
 				{#if button}
-					<button class="bg-primary text-white font-bold py-2 px-4 rounded-full mt-4" on:click={() => { window.location.href = `/products/${product.id}`; }}>
+					<button class="bg-primary text-white font-bold py-2 px-4 rounded-full mt-4" on:click={() => { 
+						goto(`/products/${product.id}`);
+					 }}>
 						Go to product
 					</button>
 				{/if}
