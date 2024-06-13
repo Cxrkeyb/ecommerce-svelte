@@ -1,38 +1,48 @@
-# create-svelte
+# Ecommerce
+This is a simple ecommerce website built with SvelteKit and TailwindCSS. It is a frontend only project and have backend functionality. It is a simple project to demonstrate the use of SvelteKit and TailwindCSS.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+## Features
+- Responsive design
+- Product listing
+- Product details
+- Cart
+- Checkout
+- Order confirmation
+- Control panel
+- Add product
+- Edit product
+- Delete product
+- View orders
+- View order details
+- Update order status
 
-## Creating a project
+## Technologies
+- SvelteKit
+- TailwindCSS
+- JavaScript
+- HTML
+- CSS
 
-If you're seeing this, you've probably already done this step. Congrats!
+## You have to need
+- Node.js
+- NPM
+- Git
+- Code editor
+- Browser
 
+## Installation
+1. Clone the repository
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+git clone
 ```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
+2. Install dependencies
+```bash
+npm install
+```
+3. Start the development server
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
+4. Open the browser and navigate to `http://localhost:3000`
+5. Enjoy!
 
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
